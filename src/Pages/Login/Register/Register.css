@@ -1,0 +1,35 @@
+.register-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.form-bg{
+    margin-top: 100px;
+}
+
+.form-align{
+    margin-left: 180px;
+}
+#form-align{
+    margin-left: 250px;
+}
+
+.submit-btn{
+    margin-top: 20px;
+    margin-left: 0px; 
+    width: 340px;
+}
+/* Make it Responsive*/
+
+@media only screen and (max-width:688px) {
+    .register-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (min-width:689px) and (max-width:991px) {
+    .register-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

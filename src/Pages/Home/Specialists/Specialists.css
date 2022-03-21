@@ -1,0 +1,23 @@
+.specialists-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.specialist{
+    border-radius: 20px;
+}
+
+.specialist img{
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+    margin: auto;
+
+}
+
+.card-body{
+    margin: auto;
+    display: block;
+}
