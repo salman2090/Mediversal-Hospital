@@ -7,7 +7,7 @@ const Specialists = () => {
 
     // load data
     useEffect(() => {
-        fetch("http://localhost:5000/doctors")
+        fetch("https://young-taiga-05523.herokuapp.com/doctors")
             .then(res => res.json())
             .then(data => setDoctors(data))
     }, [])

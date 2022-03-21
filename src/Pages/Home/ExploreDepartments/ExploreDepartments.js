@@ -7,7 +7,7 @@ const ExploreDepartments = () => {
 
     // load data
     useEffect(() => {
-        fetch("http://localhost:5000/departments")
+        fetch("https://young-taiga-05523.herokuapp.com/departments")
             .then(res => res.json())
             .then(data => setDepartments(data))
     }, [])
