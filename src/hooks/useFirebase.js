@@ -8,10 +8,8 @@ initializeFirebase();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    // const [admin, setAdmin]= useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [token, setToken]=useState('');
 
     const auth = getAuth();
 
@@ -25,7 +23,7 @@ const useFirebase = () => {
                 const newUser = {email, displayName: name};
                 setUser(newUser);
                 // save user to the database
-                // saveUser(email, name);
+                saveUser(email, name);
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -64,10 +62,6 @@ const useFirebase = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                getIdToken(user)
-                    .then(idToken => {
-                        setToken(idToken)
-                    })
                 
               } else {
                 // User is signed out
@@ -79,12 +73,6 @@ const useFirebase = () => {
           return () => unsubscribe
     }, [auth])
 
-    // // set admin data
-    // useEffect(() => {
-    //     fetch(`https://guarded-chamber-73024.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // },[user.email])
     
     // user signout
     const logOut = () => {
@@ -98,24 +86,22 @@ const useFirebase = () => {
     }
 
     // send registered user info in database
-    // const saveUser = (email, displayName) => {
-    //         const user = {email, displayName};
-    //         fetch('https://guarded-chamber-73024.herokuapp.com/users', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'content-type' : 'application/json'
-    //             },
-    //             body: JSON.stringify(user)
-    //         })
-    //         .then()
-    // }
+    const saveUser = (email, displayName) => {
+            const user = {email, displayName};
+            fetch('https://young-taiga-05523.herokuapp.com/users', {
+                method: 'POST',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then()
+    }
 
     return{
         user,
         isLoading,
         authError,
-        // admin,
-        token,
         registerUser,
         loginUser,
         logOut,

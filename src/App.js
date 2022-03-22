@@ -16,6 +16,8 @@ import Doctors from './Pages/Home/Doctors/Doctors';
 import Specialists from './Pages/Home/Specialists/Specialists';
 import Departments from './Pages/Home/Departments/Departments';
 import ExploreDepartments from './Pages/Home/ExploreDepartments/ExploreDepartments';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Appointment from './Pages/Appointment/Appointment';
 
 function App() {
   return (
@@ -51,6 +53,9 @@ function App() {
               <Route path="/exploreDepartments">
                 <ExploreDepartments></ExploreDepartments>
               </Route>
+              <PrivateRoute path="/appointment">
+                <Appointment></Appointment>
+              </PrivateRoute>
               <Route path="*">
                 <NotFound></NotFound> 
               </Route>
